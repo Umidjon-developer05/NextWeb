@@ -5,10 +5,10 @@ const CourseVideoDescription = ({courseInfo,activeChapterIndex,watchMode=false,s
     return (
     <div>
         {
-            courseInfo?.map((item,index)=>(
+          courseInfo?.length > 0 ?   courseInfo?.map((item,index)=>(
                 <div className='border shadow border-spacing-28  ' style={{borderRadius:"10px",zIndex:"0"}} key={index}>
                     { 
-                        <video key={item?.chapter[activeChapterIndex]?.video?.url} style={{width:"100%",height:"400px",zIndex:"0"}} controls className='rounded-sm' >
+                        <video key={item?.chapter[activeChapterIndex]?.video?.url} style={{width:"100%",height:"500px",zIndex:"0"}} controls className='rounded-sm' >
                             <source src={item?.chapter[activeChapterIndex]?.video?.url} type='video/mp4'/>
                         </video>
                     }
@@ -42,7 +42,18 @@ const CourseVideoDescription = ({courseInfo,activeChapterIndex,watchMode=false,s
                    
                    
                 </div>
-            ))
+            )):
+            <>
+            {
+                [1].map((item,index)=>(
+                    <div style={{width:"100%",height:"600px",display:"flex",gap:"20px"}} key={index}>
+                      <div className='w-full h-full rounded-xl m-2 bg-slate-500 animate-pulse flex flex-col gap-3 p-2 '> 
+                  
+                      </div>
+                    </div>
+                  ))
+            }
+            </>
         }
     </div>
   )

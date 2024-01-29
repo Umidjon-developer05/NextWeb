@@ -5,7 +5,7 @@ import CourseList from './_components/CourseList'
 
 function COurses() {
   return (
-    <div className='grid grid-cols-1  gap-3'>
+    <div className='grid grid-cols-1 sm:ml-60  gap-3'>
         <div className=' col-span-2  p-2 '>
             {/* banner */}
             <WelcomeBanner/>

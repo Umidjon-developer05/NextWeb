@@ -20,13 +20,10 @@ const CoursePreview = ({params}) => {
             setChapter(resp?.blogs[0]?.chapter)
         })
     }
-    // save Completed chapter id
    
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 p-5 gap-3'>
-
-
-            <div className='col-span-2  p-2  '>
+    <div className='grid grid-cols-1 md:grid-cols-3 gap-3' style={{maxWidth:"1500px"}}>
+            <div className='col-span-2    '>
                     <CourseVideoDescription courseInfo={courseInfo}
                      activeChapterIndex={activeChapterIndex}
                      watchMode={true}
@@ -36,7 +33,8 @@ const CoursePreview = ({params}) => {
             
                 <div>
                   
-                  {courseChapter?.map((item,index)=>(
+                  {courseChapter?.length >0 ?
+                   courseChapter?.map((item,index)=>(
                        <div key={index}>
                     
                        <CourseContentSection Chapter={item}
@@ -45,7 +43,19 @@ const CoursePreview = ({params}) => {
                           setActiveChapterIndex={(index)=>setActiveChapterIndex(index)}
                         />
                        </div>
-                  ))}
+                  )):
+                  <>
+                   {
+                 [1,2].map((item,index)=>(
+                    <div style={{width:"100%",display:"flex",gap:"20px"}} key={index}>
+                      <div className='w-full  h-full rounded-xl m-2 bg-slate-500 animate-pulse flex flex-col gap-3 p-6 '> 
+                  
+                      </div>
+                    </div>
+                  ))
+               }
+                  </>
+                  }
                 </div>
      </div>
   )

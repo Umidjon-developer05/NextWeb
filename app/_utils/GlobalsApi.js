@@ -89,8 +89,25 @@ const getCourseById = async (courseId)=>{
   return result;
 }
 
+const getBanner = async ()=>{
+  const query = gql`
+  query MyQuery {
+    sideBanners {
+      banner {
+        url
+      }
+      name
+      url
+    }
+  }
+  `
+  const result = await request(MASTER_URL,query);
+  return result;
+}
+
 
 export default {
     getAllCourseList,
     getCourseById,
+    getBanner
 }

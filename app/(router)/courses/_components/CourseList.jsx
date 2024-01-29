@@ -5,7 +5,6 @@ import Link from 'next/link'
 import CourseItem from "./CourseItem"
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getAllCourses();
@@ -16,9 +15,7 @@ const CourseList = () => {
       .then(resp => {
         setCourses(resp?.blogs);
       })
-      .finally(() => setLoading(false));
   };
-  console.log(courses);
   
   return (
     <div style={{ display:'flex' ,gap:"10px",flexWrap:"wrap"}} > 
