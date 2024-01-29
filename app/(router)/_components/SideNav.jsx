@@ -5,13 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import "../../globals.css";
-const SideNav = () => {
+import { useTheme } from 'next-themes';
+const SideNav = ({menuOpen}) => {
     const { user } = useUser();
-    const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setMenuOpen(!menuOpen);
-    };
+    const { resolvedTheme} = useTheme()
+    console.log(resolvedTheme);
     const menu = [
         {
             id: 1,
@@ -45,32 +44,20 @@ const SideNav = () => {
 
     return (
         <>
-        <div className={` shadow-sm h-screen z-0 `} style={{height:"100vh",position:"fixed",zIndex:"9999"}}>
-        <div className='' style={{position:"absolute",top:"-50px"}}>
-        <div className='lg:hidden cursor-pointer mx-2' onClick={toggleMenu}>
-                    <svg
-                        className='w-6 h-6'
-                        fill='none'
-                        stroke='currentColor'
-                        viewBox='0 0 24 24'
-                        xmlns='http://www.w3.org/2000/svg'
-                    >
-                        <path
-                            strokeLinecap='round'
-                            strokeLinejoin='round'
-                            strokeWidth='2'
-                            d='M4 6h16M4 12h16m-7 6h7'
-                        ></path>
-                    </svg>
-                </div>
+        <div className={` shadow-sm mt-24 `} style={{ height:"100vh",zIndex:"9999"}}>
+        <div className='' >
+        
+            
         </div>
-            <div className={` ${menuOpen ? 'block' : 'hidden border h-[100vh] w-full p-5'} lg:block  ${menuOpen ?' shadow  group-hover:animate-accordion-down h-screen border p-5':''} `} >
+
+            <div className={` ${resolvedTheme == "dark" ? 'bg-slate-950':''} ${menuOpen ? '':''} ${menuOpen ? 'block   ' : 'hidden border h-[100vh]   w-full p-5'} lg:block  ${menuOpen ?' shadow  group-hover:animate-accordion-down h-screen border p-5':''} `} >
+                <div className='mt-24'> 
                 {menu.map(
                     (item, index) =>
                         item.auth && (
-                            <Link href={item?.path} key={index}>
+                         <Link href={item?.path} key={index} >
                                 <div
-                                    className='group flex gap-3 mt-8 p-3 text-lg lg:text-xl items-center text-gray-500 cursor-pointer
+                                    className='group flex gap-3 mt-10 p-3 text-lg lg:text-xl items-center text-gray-500 cursor-pointer
                             hover:bg-primary
                             hover:text-white
                             rounded-md
@@ -83,7 +70,8 @@ const SideNav = () => {
                                 </div>
                             </Link>
                         )
-                )}
+                        )}
+                        </div>
             </div>
         </div>
         </>
