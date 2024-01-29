@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import "../../globals.css";
-
 const SideNav = () => {
     const { user } = useUser();
     const [menuOpen, setMenuOpen] = useState(false);
