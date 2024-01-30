@@ -16,9 +16,9 @@ import { useState } from 'react'
 const Header = () => {
   const {user,isLoaded} = useUser()
 
-  const { setTheme,themes } = useTheme()
+  const { setTheme,resolvedTheme} = useTheme()
   return (
-    <div className='h-24 pl-3 pr-3 w-full  flex justify-between items-center border shadow-sm ' style={{position:"sticky",width:"100%",top:'0',left:"0"}}>
+    <div className={`h-24 pl-3 pr-3 w-full z-10   flex justify-between items-center border shadow-sm ${resolvedTheme == "light" && 'bg-white' }  ${resolvedTheme == "dark" && 'bg-slate-950' } `} style={{position:"sticky",width:"100%",top:'0',left:"0"}}>
       <div className='flex gap-3 items-center' style={{zIndex:"9999"}}>
       <Link href={'/dashbord'}>
       <h1 className={`Logo text-2xl lg:text-4xl text-center mx-4 '`} >Umidjon </h1>
