@@ -49,7 +49,7 @@ const SideNav = () => {
         <div className={` shadow-sm mt-24 `} style={{ height:"100vh",zIndex:"9999"}}>
         <div className='' >
         
-        <button style={{position:"absolute",top:"-5px"}} className='lg:hidden z-20 cursor-pointer mx-1 mt-10' onClick={toggleMenu}>
+        <button style={{position:"absolute",top:"-5px"}} className='lg:hidden  cursor-pointer mx-1 mt-10' onClick={toggleMenu}>
                     <svg
                         className='w-6 h-6'
                         fill='none'
