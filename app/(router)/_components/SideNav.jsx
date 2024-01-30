@@ -67,7 +67,7 @@ const SideNav = () => {
             </button>
         </div>
 
-            <div className={` ${resolvedTheme == "dark" ? 'bg-slate-950':''} ${menuOpen ? '':''} ${menuOpen ? 'block   ' : 'hidden border h-[100vh]   w-full p-5'} lg:block  ${menuOpen ?' shadow  group-hover:animate-accordion-down h-screen border p-5':''} `} >
+            <div className={` ${resolvedTheme == "dark" ? 'bg-slate-950':'shadow bg-white'} ${menuOpen ? '':''} ${menuOpen ? 'block   ' : 'hidden border h-[100vh]   w-full p-5'} lg:block  ${menuOpen ?' shadow  group-hover:animate-accordion-down h-screen border p-5':''} `} >
                 <div className='mt-24'> 
                 {menu.map(
                     (item, index) =>
