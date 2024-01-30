@@ -3,9 +3,12 @@ import GlobalsApi from '@/app/_utils/GlobalsApi';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link'
 import CourseItem from "./CourseItem"
+import { useUser } from '@clerk/nextjs';
+import { Button } from '@/components/ui/button';
 const CourseList = () => {
   const [courses, setCourses] = useState([]);
-
+  const { user } = useUser();
+  console.log(user?.primaryEmailAddress?.emailAddress);
   useEffect(() => {
     getAllCourses();
   }, []);
@@ -22,9 +25,16 @@ const CourseList = () => {
         {
         courses.length > 0 ? courses?.map((item, index) => 
           <div key={index}>
-             <Link  href={`/course-preview/`+ item?.slug} >
-                  <CourseItem item={item}/>
-              </Link>
+               
+            
+                <>
+                  <Link  href={`${user?.primaryEmailAddress?.emailAddress  ? `/course-preview/${item?.slug}` :'/sign-in' }  `} >
+           
+                    <CourseItem item={item}/>
+                  </Link>
+                </>
+                
+           
           </div>
         
         )

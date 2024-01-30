@@ -23,7 +23,7 @@ const SideNav = () => {
         },
         {
             id: 2,
-            name: 'All Courses',
+            name: 'Barcha kurslar',
             icon: BookOpen,
             path: 'courses',
             auth: true
@@ -37,7 +37,7 @@ const SideNav = () => {
         },
         {
             id: 4,
-            name: 'Be Instructor',
+            name: 'Contact',
             icon: GraduationCap,
             path: 'BeInstructor',
             auth: true
