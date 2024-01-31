@@ -39,7 +39,7 @@ const CourseList = () => {
         
         )
           :
-          [1,2].map((item,index)=>(
+          [1,2,3].map((item,index)=>(
             <div style={{width:"410px",display:"flex",gap:"20px"}} key={index}>
               <div className='w-full h-[430px] rounded-xl m-2 bg-slate-500 animate-pulse flex flex-col gap-3 p-2 blur-2xl'> 
           
