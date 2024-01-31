@@ -39,7 +39,7 @@ function Layout({ children  }) {
         <div className='sm:w-64 sm:block   min-h-screen ' style={{position:"fixed",top:"0"}}>
         <Suspense>
           {
-            path === `/course-preview/reactjs` || path === "/course-preview/javascript" ? '' :<SideNav
+            path === `/course-preview/reactjs` || path === "/course-preview/javascript" ||path === "/course-preview/vuejs" ? '' :<SideNav
             />
           }
           

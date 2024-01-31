@@ -1,6 +1,6 @@
 "use client"
 import { useUser } from '@clerk/nextjs';
-import { BadgeIcon, BookOpen, GraduationCap, LayoutGrid } from 'lucide-react';
+import { BadgeIcon, BookOpen, Contact, GraduationCap, LayoutGrid } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
@@ -38,7 +38,7 @@ const SideNav = () => {
         {
             id: 4,
             name: 'Contact',
-            icon: GraduationCap,
+            icon: Contact,
             path: 'BeInstructor',
             auth: true
         },
