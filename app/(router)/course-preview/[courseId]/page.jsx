@@ -10,6 +10,8 @@ const CoursePreview = ({params}) => {
     const [courseInfo,setCourseInfo] = useState()
     const [courseChapter,setChapter]= useState()
     const [activeChapterIndex,setActiveChapterIndex] = useState(0)
+    const [ID,setID] = useState(0)
+    const [buttonClicked, setButtonClicked] = useState(false);
     const path = usePathname();
     useEffect(()=>{
       params&&getCourseInfoById()
@@ -17,33 +19,36 @@ const CoursePreview = ({params}) => {
     const getCourseInfoById =()=>{
         GlobalsApi.getCourseById(params?.courseId).then(resp=>{
             setCourseInfo(resp?.blogs);
-            setChapter(resp?.blogs[0]?.chapter)
+            setChapter(resp?.blogs[0].chapter)
         })
     }
-   
   return (
     <div className='grid grid-cols-1 md:grid-cols-3 gap-3' style={{maxWidth:"1500px"}}>
             <div className='col-span-2    '>
                     <CourseVideoDescription courseInfo={courseInfo}
                      activeChapterIndex={activeChapterIndex}
                      watchMode={true}
-                   />
-
+                     setID={setID}
+                     ID={ID}
+                     setButtonClicked={setButtonClicked}
+                     buttonClicked={buttonClicked}
+                    />
                    </div>
-            
                 <div>
                   
-                  {courseChapter?.length >0 ?
+                  {courseChapter?.length > 0 ?
                    courseChapter?.map((item,index)=>(
-                       <div key={index}>
-                    
+                     <div key={index}>
                        <CourseContentSection Chapter={item}
                           watchMode={true}
+                          activeChapterIndex={activeChapterIndex}
                           index ={index}
-                          setActiveChapterIndex={(index)=>setActiveChapterIndex(index)}
+                          buttonClicked ={buttonClicked}
+                          setActiveChapterIndex={(index)=>setActiveChapterIndex(index) }
                         />
                        </div>
-                  )):
+                  ))
+                  :
                   <>
                    {
                  [1,2].map((item,index)=>(

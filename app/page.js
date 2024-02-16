@@ -9,7 +9,7 @@ function Courses() {
       if (user) {
         router.push('/dashbord')
       }else{
-        router.push('/dashbord')
+        router.push('/courses')
       }
     },[])
   return (

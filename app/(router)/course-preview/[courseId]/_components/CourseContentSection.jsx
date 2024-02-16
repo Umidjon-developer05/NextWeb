@@ -1,17 +1,19 @@
 import { Item } from '@radix-ui/react-dropdown-menu';
 import React, { useState } from 'react'
 import { Lock, Play } from 'lucide-react';
-const CourseContentSection = ({Chapter,watchMode = true,setActiveChapterIndex,index}) => {
+const CourseContentSection = ({Chapter,watchMode = true,setActiveChapterIndex, index,activeChapterIndex,}) => {
     const [activeIndex, setActiveIndex]= useState(0);
+
   return (
     <div className='mt-2 flex flex-col gap-3'>
         
             <div className={`p-2 text-[14xp] flex justify-between items-center gap-3
             border rounded-sm px-4 cursor-pointer
             hover:bg-primary hover:text-white
-            ${activeIndex !== index ? '':'bg-primary text-white'}`}
+            ${activeChapterIndex !== index ? '':'bg-primary text-white'}
+            `}
             onClick={()=> {watchMode && setActiveChapterIndex(index);
-           watchMode && setActiveIndex(index)}
+             watchMode && setActiveIndex(index)} 
             }
            >
                 {index + 1}.   {Chapter?.name}       {
@@ -19,7 +21,7 @@ const CourseContentSection = ({Chapter,watchMode = true,setActiveChapterIndex,in
                 }
             </div>
     </div>  
-  )
+  ) 
 }
 
 export default CourseContentSection

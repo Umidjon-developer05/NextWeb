@@ -3,8 +3,7 @@ import { Inter,Outfit } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-
+import { Toaster } from "@/components/ui/toaster"
 const inter = Outfit({ subsets: ["latin"] });
 
 // export const metadata = {
