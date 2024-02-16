@@ -15,7 +15,7 @@ const CoursePreview = ({params}) => {
     const path = usePathname();
     useEffect(()=>{
       params&&getCourseInfoById()
-    },[params])
+    },[ params ])
     const getCourseInfoById =()=>{
         GlobalsApi.getCourseById(params?.courseId).then(resp=>{
             setCourseInfo(resp?.blogs);
