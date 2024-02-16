@@ -7,7 +7,7 @@ const DashboardBanner = () => {
   useEffect(() => {
     const getAllCourses = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/course");
+        const response = await axios.get("https://umidgafforov.uz/api/course");
         console.log(response.data); 
       } catch (error) {
         console.error("Error fetching courses:", error);
