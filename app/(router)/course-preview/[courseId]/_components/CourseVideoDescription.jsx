@@ -21,7 +21,7 @@ const CourseVideoDescription = ({ID,courseInfo,activeChapterIndex,watchMode=fals
                 title: item.title,
                 image: item?.image?.url,
             };
-            let res =  await axios.post("http://localhost:3000/api/course", requestBody);
+            let res =  await axios.post("https://umidgafforov.uz/api/course", requestBody);
             if (res) {
                 toast({
                     title: "Yana bir darsingizni tugatib olganingizdan xursandmiz 😊",
