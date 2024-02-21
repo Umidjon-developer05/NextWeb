@@ -40,7 +40,7 @@ const Header = () => {
     username:title,
     Offer:Desc
     }
-    let res =  await axios.post("http://localhost:3000/api/courseoffer", requestBody);
+    let res =  await axios.post("https://umidgafforov.uz/api/courseoffer", requestBody);
     if (res) {
         toast({
             title: "Siz qoldirgan taklifingizni o'qib chiqib siz bilan bog'lanamiz 😊",
