@@ -15,6 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
     <html lang="en">
+    <link
+        rel="icon"
+        href="/faicon.svg"
+        type="image/x-icon"
+      />
            <body className={inter.className}>
            <ThemeProvider
             attribute="class"
